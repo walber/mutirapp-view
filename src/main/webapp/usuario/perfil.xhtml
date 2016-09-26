@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+<ui:composition template="/templates/default.xhtml">
+    <ui:define name="title">Perfil do Usuário</ui:define>
+    
+    <ui:define name="content">
+        <h:form styleClass="form-horizontal" acceptcharset="UTF-8">
+            <!-- Nome -->
+            <div class="form-group">
+	            <p:outputLabel for="nome" value="Nome: " styleClass="col-md-2 control-label" />
+	            <div class="col-md-4">
+	                <p:inputText id="nome" value="" size="40" required="true" />
+	            </div>
+            </div>
+            
+            <!-- E-mail -->
+            <div class="form-group">
+                <p:outputLabel for="email" value="E-mail: " styleClass="col-md-2 control-label" />
+	            <div class="col-md-4">
+	                <p:inputText id="email" value="" size="40" required="true" />
+	            </div>
+            </div>
+            
+            <!-- Senha -->
+            <div class="form-group">
+                <p:outputLabel for="senha" value="Senha: " styleClass="col-md-2 control-label" />
+	            <div class="col-md-4">
+	                <p:password id="senha" value="" size="40" required="true" />
+	            </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="col-md-4 col-md-offset-2">
+                    <p:commandButton value="Salvar" />
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>
+
+</html>
