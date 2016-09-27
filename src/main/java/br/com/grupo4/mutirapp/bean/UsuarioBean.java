@@ -5,13 +5,19 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import br.com.grupo4.mutirapp.model.Usuario;
-import br.com.grupo4.mutirapp.rn.UsuarioRN;
+import br.com.grupo4.mutirapp.service.UsuarioService;
 
 @ManagedBean
 @RequestScoped
+@Component
 public class UsuarioBean {
 
+	@Autowired
+	private UsuarioService usuarioService;
 	private Usuario usuario;
 	private String confirmacaoSenha;
 	
@@ -45,8 +51,11 @@ public class UsuarioBean {
 		FacesMessage message = new FacesMessage("Operação realizada com sucesso.");
 		context.addMessage(null, message);
 		
-		UsuarioRN usuarioRN = new UsuarioRN();
-		usuarioRN.salvar(usuario);
+//		UsuarioRN usuarioRN = new UsuarioRN();
+//		usuarioRN.salvar(usuario);
+		System.out.println("UB: " + this.usuarioService);
+		System.out.println("UB: " + this.usuario);
+		this.usuarioService.cadastrarUsuario(usuario);
 		return null;
 	}
 
