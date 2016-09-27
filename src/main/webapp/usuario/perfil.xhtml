@@ -4,39 +4,40 @@
     xmlns:p="http://primefaces.org/ui"
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     
-<ui:composition template="/templates/default.xhtml">
+<ui:composition template="/templates/dashboard.xhtml">
     <ui:define name="title">Perfil do Usuário</ui:define>
     
     <ui:define name="content">
-        <h:form styleClass="form-horizontal" acceptcharset="UTF-8">
+        <h:form styleClass="col-md-6 col-md-offset-3" acceptcharset="UTF-8">
             <!-- Nome -->
             <div class="form-group">
-	            <p:outputLabel for="nome" value="Nome: " styleClass="col-md-2 control-label" />
-	            <div class="col-md-4">
-	                <p:inputText id="nome" value="" size="40" required="true" />
-	            </div>
+	            <p:outputLabel for="nome" value="Nome: " styleClass="control-label text-center" />
+	            <p:inputText id="nome" styleClass="form-control" value="" size="40" required="true" />
             </div>
             
             <!-- E-mail -->
             <div class="form-group">
-                <p:outputLabel for="email" value="E-mail: " styleClass="col-md-2 control-label" />
-	            <div class="col-md-4">
-	                <p:inputText id="email" value="" size="40" required="true" />
-	            </div>
+                <p:outputLabel for="email" value="E-mail: " styleClass="control-label" />
+                <p:inputText id="email" styleClass="form-control" value="" size="40" required="true" />
             </div>
             
             <!-- Senha -->
             <div class="form-group">
-                <p:outputLabel for="senha" value="Senha: " styleClass="col-md-2 control-label" />
-	            <div class="col-md-4">
-	                <p:password id="senha" value="" size="40" required="true" />
-	            </div>
+                <p:outputLabel for="senha" value="Senha: " styleClass="control-label" />
+	            <p:password id="senha" styleClass="form-control" value="" size="40" required="true" />
             </div>
-            
+
+            <!-- Confirmação de Senha -->
             <div class="form-group">
-                <div class="col-md-4 col-md-offset-2">
-                    <p:commandButton value="Salvar" />
-                </div>
+                <p:outputLabel for="confirmacaoSenha" value="Confirmação de senha: " styleClass="control-label" />
+	            <p:password id="confirmacaoSenha" styleClass="form-control" value="" size="40" required="true" />
+	        </div>
+            
+            <!-- Salvar -->
+            <div class="form-group">
+                <h:commandButton value="Salvar" styleClass="btn btn-lg btn-primary pull-right" />
+                <a href="/mutirapp/acao/buscar.jsf" class="btn btn-lg btn-default pull-left">
+                    Voltar</a>
             </div>
         </h:form>
     </ui:define>
