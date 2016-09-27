@@ -1,4 +1,4 @@
-package repository;
+package br.com.grupo4.mutirapp.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
