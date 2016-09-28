@@ -2,15 +2,17 @@ package br.com.grupo4.mutirapp.service;
 
 import java.util.List;
 
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import br.com.grupo4.mutirapp.model.Acao;
 import br.com.grupo4.mutirapp.model.Usuario;
 import br.com.grupo4.mutirapp.repository.UsuarioRepository;
 
-@Component
+@Service
 public class UsuarioServiceImpl implements UsuarioService {
-
+	
+	@Autowired
 	private UsuarioRepository usuarioRepository;
 
 	@Override
@@ -27,8 +29,8 @@ public class UsuarioServiceImpl implements UsuarioService {
 
 	@Override
 	public void cadastrarUsuario(Usuario usuario) {
-		System.out.println("USI: " + usuario);
-		System.out.println("USI: " + usuarioRepository);
+		System.out.println("USI: usuario: " + usuario);
+		System.out.println("USI: usuarioRepository: " + usuarioRepository);
 		this.usuarioRepository.save(usuario);
 	}
 
