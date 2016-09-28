@@ -2,9 +2,12 @@ package br.com.grupo4.mutirapp.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import br.com.grupo4.mutirapp.model.Acao;
 import br.com.grupo4.mutirapp.model.Usuario;
 
+@Component
 public interface UsuarioService {
 	public List<Acao> listarAcoes(String email);
 	public Usuario getUsuarioByEmail(String email);
