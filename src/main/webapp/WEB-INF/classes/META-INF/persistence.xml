@@ -5,9 +5,8 @@
 	version="1.0">
 	<persistence-unit name="fcmsServer" transaction-type="RESOURCE_LOCAL">
 
-		<class>br.com.grupo4.mutirapp.model.Usuario</class>
 		<properties>
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/mutirapp" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/mutirapp?createDatabaseIfNotExist=true" />
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
 			<property name="javax.persistence.jdbc.user" value="root" />
