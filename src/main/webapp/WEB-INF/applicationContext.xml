@@ -20,25 +20,27 @@
 	<jpa:repositories base-package="br.com.grupo4.mutirapp.repository"
 		entity-manager-factory-ref="entityManagerFactory"></jpa:repositories>
 
-    <!-- gerenciamento de jpa pelo spring -->
-    <beans:bean id="entityManagerFactory"
-        class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-        <beans:property name="dataSource" ref="mysqlDataSource" />
-        <beans:property name="jpaVendorAdapter">
-            <beans:bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
-        </beans:property>
-    </beans:bean>
-    
-    <beans:bean id="mysqlDataSource" class="org.apache.commons.dbcp.BasicDataSource">
-        <beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <beans:property name="url" value="jdbc:mysql://localhost:3306/mutirapp" />
-        <beans:property name="username" value="root" />
-        <beans:property name="password" value="" />
-    </beans:bean>
+	<beans:bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
+		<beans:property name="jpaVendorAdapter">
+			<beans:bean
+				class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+				<beans:property name="showSql" value="false" />
+				<beans:property name="generateDdl" value="true" />
+				<beans:property name="databasePlatform"
+					value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+			</beans:bean>
+		</beans:property>
+	</beans:bean>
 
-    <!-- gerenciamento da transação pelo spring -->
-    <beans:bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-        <beans:property name="entityManagerFactory" ref="entityManagerFactory" />
-    </beans:bean>
+	<beans:bean
+		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+
+	<beans:bean id="transactionManager"
+		class="org.springframework.orm.jpa.JpaTransactionManager">
+		<beans:property name="entityManagerFactory" ref="entityManagerFactory" />
+	</beans:bean>
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
 
 </beans:beans>
